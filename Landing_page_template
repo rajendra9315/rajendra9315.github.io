@@ -1,0 +1,200 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Landing Page Template</title>
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --accent:#06b6d4; --muted:#9aa7b2; --glass: rgba(255,255,255,0.03);
+      --radius:14px; --gap:18px; font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0; background:linear-gradient(180deg,#071022 0%, #071a2b 100%); color:#e6eef3; line-height:1.5}
+    .container{max-width:1100px; margin:32px auto; padding:20px}/* Header */
+header{display:flex; align-items:center; justify-content:space-between; gap:12px}
+.brand{display:flex; align-items:center; gap:12px}
+.logo{width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:grid;place-items:center;font-weight:700}
+nav a{color:var(--muted); text-decoration:none; margin-left:14px}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1fr 420px; gap:24px; align-items:center;margin-top:26px}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:26px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+h1{font-size:34px;margin:0 0 8px}
+p.lead{color:var(--muted); margin:0 0 18px}
+.btn-row{display:flex; gap:12px; margin-top:12px}
+.btn{padding:10px 16px;border-radius:10px;border:0; cursor:pointer; font-weight:600}
+.btn.primary{background:var(--accent); color:#04202a}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06); color:var(--muted)}
+
+/* Marquee (CSS-based) */
+.marquee-wrap{overflow:hidden; background:var(--glass); border-radius:10px; padding:10px; margin-top:18px}
+.marquee{display:inline-block; white-space:nowrap; animation: scroll 15s linear infinite}
+@keyframes scroll{from{transform:translateX(100%)} to{transform:translateX(-100%)}}
+
+/* Carousel */
+.carousel{position:relative; overflow:hidden; border-radius:12px}
+.slides{display:flex; transition:transform 0.6s cubic-bezier(.2,.9,.2,1)}
+.slide{min-width:100%; display:grid; place-items:center; padding:20px}
+.slide img{max-width:100%; border-radius:8px; display:block}
+.carousel-controls{position:absolute; top:50%; left:0; right:0; display:flex; justify-content:space-between; transform:translateY(-50%); pointer-events:none}
+.control{pointer-events:all; background:rgba(0,0,0,0.35); border:0; padding:10px; margin:8px;border-radius:8px; color:white}
+
+/* Video area */
+.media{display:grid; gap:12px}
+.video-card{aspect-ratio:16/9; background:#000;border-radius:10px; overflow:hidden}
+video{width:100%; height:100%; object-fit:cover}
+
+/* Gallery */
+.gallery{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
+.gallery img{width:100%; display:block; border-radius:8px}
+
+/* Footer */
+footer{margin-top:28px; color:var(--muted); font-size:14px; text-align:center}
+
+/* Responsive */
+@media (max-width:980px){.hero{grid-template-columns:1fr} .container{padding:14px}}
+@media (max-width:640px){.gallery{grid-template-columns:repeat(2,1fr)}}
+
+/* small helpers */
+.muted{color:var(--muted)}
+.badge{background:rgba(255,255,255,0.03); padding:6px 10px; border-radius:999px; font-size:13px}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">LP <!-- REPLACE: Put your logo initials or image --></div>
+        <div>
+          <div style="font-weight:700">Your Product</div>
+          <div class="muted" style="font-size:13px">Professional Demo Branding • Replace This With Your Tagline</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#features">Features</a>
+        <a href="#media">Media</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header><main class="hero">
+  <section class="card">
+    <span class="badge">New — 2025</span>
+    <h1>Welcome to Our Premium Service Demo</h1>
+    <p class="lead">This is a fully loaded demo landing page showing how your actual content will look once added. All images, video, text, carousel items, and gallery sections are now filled with real demo placeholders.</p>
+
+    <div class="btn-row">
+      <button class="btn primary" onclick="ctaPrimary()">Get Started</button>
+      <button class="btn ghost" onclick="ctaSecondary()">Watch Demo</button>
+    </div>
+
+    <!-- Marquee: we use CSS animation above. If you explicitly want the old <marquee> tag, replace this element with it. -->
+    <div class="marquee-wrap" aria-hidden="true" style="margin-top:16px">
+      <div class="marquee">🔥 Limited seats — Early-bird discount ends Nov 30 • Free guide with signup • Live Q&amp;A every Friday • 100% money-back guarantee</div>
+    </div>
+
+    <p style="margin-top:14px" class="muted">Short features:</p>
+    <ul style="margin-top:6px;color:var(--muted)">
+      <li>Responsive layout • Lightweight • Accessible controls</li>
+      <li>Built-in media sections: carousel, video, gallery</li>
+      <li>Customizable buttons &amp; CTA hooks</li>
+    </ul>
+  </section>
+
+  <aside style="display:grid; gap:16px">
+    <div class="card media">
+      <div style="display:flex; justify-content:space-between; align-items:center">
+        <strong>Image Carousel</strong>
+        <small class="muted">Auto-play + click</small>
+      </div>
+
+      <div class="carousel" id="carousel1" style="margin-top:10px">
+        <div class="slides" id="slides1">
+          <div class="slide"><div class="slide"><img src="https://picsum.photos/1200/700?random=1" alt="Demo Slide 1"></div>
+          <div class="slide"><img src="https://picsum.photos/1200/700?random=2" alt="Demo Slide 2"></div>
+          <div class="slide"><img src="https://picsum.photos/1200/700?random=3" alt="Demo Slide 3"></div>
+        </div>
+        <div class="carousel-controls">
+          <button class="control" data-action="prev">◀</button>
+          <button class="control" data-action="next">▶</button>
+        </div>
+      </div>
+
+      <div style="font-size:13px;color:var(--muted);margin-top:8px">Tip: Replace images with real product shots. Keep aspect ratio 16:9 for best results.</div>
+    </div>
+
+    <div class="card video-card">
+      <video controls poster="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1600' height='900'><rect width='100%' height='100%' fill='%23000000'/><text x='50%' y='50%' font-size='36' fill='%23ffffff' text-anchor='middle' dominant-baseline='middle'>Demo Video Placeholder <!-- REPLACE: Upload your video thumbnail --></text></svg>'">
+        <source src="#" <!-- REPLACE: Add your MP4 video link here --> type="video/mp4">
+        Your browser does not support the video element.
+      </video>
+    </div>
+  </aside>
+</main>
+
+<section id="features" class="card" style="margin-top:22px">
+  <h2 style="margin-top:0">More visuals</h2>
+  <p class="muted">Image gallery — click to enlarge</p>
+
+  <div class="gallery" style="margin-top:12px">
+    <img src="https://picsum.photos/800/600?random=11" alt="Gallery Image 1" onclick="openLightbox(this)">
+    <img src="https://picsum.photos/800/600?random=12" alt="Gallery Image 2" onclick="openLightbox(this)">
+    <img src="https://picsum.photos/800/600?random=13" alt="Gallery Image 3" onclick="openLightbox(this)">
+  </div>
+</section>
+
+<section id="contact" style="margin-top:18px" class="card">
+  <h3 style="margin-top:0">Get in touch</h3>
+  <p class="muted">This is a demo contact form. Replace with your real form or integration.</p>
+  <form onsubmit="event.preventDefault(); alert('Form submitted (demo)')" style="display:grid; gap:8px; margin-top:8px">
+    <input type="text" placeholder="Your name" required style="padding:10px;border-radius:8px;border:0;background:rgba(255,255,255,0.02);color:inherit">
+    <input type="email" placeholder="Email" required style="padding:10px;border-radius:8px;border:0;background:rgba(255,255,255,0.02);color:inherit">
+    <textarea placeholder="Message" rows="3" style="padding:10px;border-radius:8px;border:0;background:rgba(255,255,255,0.02);color:inherit"></textarea>
+    <div style="display:flex; gap:10px">
+      <button class="btn primary">Send message</button>
+      <button type="button" class="btn ghost" onclick="document.querySelector('form').reset()">Clear</button>
+    </div>
+  </form>
+</section>
+
+<footer>
+  © Your Company • Built with a simple HTML template • Modify as you like
+</footer>
+
+  </div>  <!-- Lightbox modal -->  <div id="lightbox" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);align-items:center;justify-content:center;padding:20px">
+    <img id="lightbox-img" src="" style="max-width:96%;max-height:96%;border-radius:10px">
+  </div>  <script>
+    // Carousel basic logic
+    (function(){
+      const slides = document.getElementById('slides1');
+      const total = slides.children.length;
+      let idx = 0;
+      let playing = true;
+      function update(){ slides.style.transform = `translateX(-${idx*100}%)`; }
+      function next(){ idx = (idx+1) % total; update(); }
+      function prev(){ idx = (idx-1+total) % total; update(); }
+      let timer = setInterval(next, 3500);
+      document.querySelector('#carousel1 .control[data-action="next"]').addEventListener('click',()=>{ next(); resetTimer();});
+      document.querySelector('#carousel1 .control[data-action="prev"]').addEventListener('click',()=>{ prev(); resetTimer();});
+      function resetTimer(){ clearInterval(timer); timer = setInterval(next,3500); }
+      // pause on hover
+      document.getElementById('carousel1').addEventListener('mouseenter', ()=>{ clearInterval(timer); });
+      document.getElementById('carousel1').addEventListener('mouseleave', ()=>{ resetTimer(); });
+    })();
+
+    function ctaPrimary(){ alert('Primary CTA clicked — link to signup or modal'); }
+    function ctaSecondary(){ window.scrollTo({top: document.querySelector('.video-card').offsetTop - 60, behavior:'smooth'}); }
+
+    // Lightbox
+    function openLightbox(img){ const lb = document.getElementById('lightbox'); document.getElementById('lightbox-img').src = img.src; lb.style.display = 'flex'; }
+    document.getElementById('lightbox').addEventListener('click', ()=>{ document.getElementById('lightbox').style.display='none'; });
+
+    // Accessibility: enable keyboard carousel arrows
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'ArrowLeft') document.querySelector('#carousel1 .control[data-action="prev"]').click();
+      if(e.key === 'ArrowRight') document.querySelector('#carousel1 .control[data-action="next"]').click();
+    });
+  </script></body>
+</html>
