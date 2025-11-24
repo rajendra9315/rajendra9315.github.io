@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Join Telegram Channel</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(120deg, #050505, #0d0d0d);
+        color: white;
+        font-family: Cambria, Candara, sans-serif;
+        text-align: center;
+    }
+
+    .top-img {
+        width: 100%;
+        max-height: 250px;
+        object-fit: cover;
+    }
+
+    .heading {
+        font-size: 34px;
+        margin-top: 25px;
+        font-weight: 700;
+        color: #33cfff;
+    }
+
+    .profile-pic {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid #ffaa00;
+        margin-top: 25px;
+    }
+
+    .username {
+        font-size: 22px;
+        margin-top: 12px;
+        font-weight: 600;
+    }
+
+    .subtext {
+        margin-top: 18px;
+        font-size: 20px;
+        color: #ffbb55;
+        padding: 0 20px;
+    }
+
+    .btn {
+        margin-top: 30px;
+        background: linear-gradient(90deg, #0099ff, #33ccff);
+        padding: 16px 35px;
+        border: none;
+        border-radius: 40px;
+        font-size: 22px;
+        color: #000;
+        font-weight: 700;
+        cursor: pointer;
+        font-family: Candara, Cambria, sans-serif;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        transform: scale(1.08);
+    }
+
+    .footer {
+        margin-top: 40px;
+        font-size: 15px;
+        color: #888;
+    }
+</style>
+</head>
+<body>
+
+<!-- Floating Telegram Button -->
+<a href="https://t.me/demo_channel" class="floating-tg">📩</a>
+
+<div class="glass-card reveal">
+    <img src="https://images.unsplash.com/photo-1620325867502-221cfb5faa5f" class="top-img" />
+    <h1 class="heading neon">🔥 Join Our Premium Telegram Community 🔥</h1>
+    <img src="https://images.unsplash.com/photo-1603415526960-f8f0a2d497d7" class="profile-pic" />
+    <div class="username">@yourchannelusername</div>
+    <div id="timer" style="margin-top: 15px; font-size: 26px; color: #33cfff; font-weight: 700;">00:30:00</div>
+    <div class="subtext">Get daily earning updates, exclusive guides, VIP knowledge & instant replies. Limited-time joining bonus active now!</div>
+    <button class="btn glow-btn">📩 Join Telegram Channel</button>
+</div>
+
+<!-- Features Section -->
+<div class="feature-section reveal">
+    <h2 class="section-title">🚀 Highlights You’ll Get</h2>
+    <div class="features-grid">
+        <div class="feature-box animated-border">Daily earning tips & signals</div>
+        <div class="feature-box animated-border">Exclusive VIP content</div>
+        <div class="feature-box animated-border">Step-by-step guides</div>
+        <div class="feature-box animated-border">Fast admin support</div>
+    </div>
+</div>
+
+<!-- Pricing / Offer Card -->
+<div class="pricing-card reveal animated-border">
+    <h2>🎁 Limited Offer</h2>
+    <p>Join today & unlock a free premium starter kit worth ₹999</p>
+    <button class="btn glow-btn">Unlock Bonus & Join</button>
+</div>
+
+<!-- Why Join Today -->
+<div class="comparison reveal">
+    <h2 class="section-title">📌 Why Join Today?</h2>
+    <div class="compare-box">
+        <div>
+            <h3>Without Channel ❌</h3>
+            <ul>
+                <li>Random earning ideas</li>
+                <li>No support</li>
+                <li>Slow growth</li>
+            </ul>
+        </div>
+        <div>
+            <h3>With Our Channel ✔️</h3>
+            <ul>
+                <li>Daily signals</li>
+                <li>Direct admin help</li>
+                <li>Proven earning tips</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">Made by Rajendra</div>
+
+<script>
+// Countdown Timer
+let total = 30 * 60;
+const timer = document.getElementById('timer');
+function updateTimer(){
+    const m = String(Math.floor(total / 60)).padStart(2,'0');
+    const s = String(total % 60).padStart(2,'0');
+    timer.textContent = `${m}:${s}`;
+    total--;
+    if(total >= 0) setTimeout(updateTimer, 1000);
+}
+updateTimer();
+
+// Scroll Reveal
+const reveals = document.querySelectorAll('.reveal');
+window.addEventListener('scroll', () => {
+    reveals.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if(top < window.innerHeight - 100) el.classList.add('active');
+    });
+});
+</script>
+
+</body>
+</html>
