@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Join Our Telegram — Demo</title>
+<link rel="icon" href="/favicon.ico">
+<style>
+    /* Animated gradient background */
+    :root{--bg1:#050505;--bg2:#0b0b0b}
+    html,body{height:100%;}
+    body{
+        margin:0;padding:0;font-family: Cambria, Candara, 'Segoe UI', Roboto, sans-serif; color:#fff;
+        background: linear-gradient(120deg,#060606 0%, #0b0b0b 40%, #0b0b0b 60%, #070707 100%);
+        overflow-x:hidden;
+    }
+    .bg-anim{
+        position:fixed; inset:0; z-index:-1; background: linear-gradient(120deg,#0a0a0a, #0d0d0d);
+        background-size: 400% 400%; animation: gradientBG 12s ease infinite;
+    }
+    @keyframes gradientBG{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+    .container{max-width:980px;margin:0 auto;padding:28px;}
+
+    /* Top banner */
+    .top-banner{width:100%;height:240px;object-fit:cover;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.6);}
+
+    .channel-name{font-size:36px;font-weight:800;color:#00eaff;margin-top:18px;text-align:center}
+
+    /* Profile card */
+    .profile-card{display:flex;flex-direction:column;align-items:center;margin-top:18px}
+    .avatar{width:150px;height:150px;border-radius:50%;object-fit:cover;border:5px solid #ff9a00;box-shadow:0 6px 24px rgba(0,0,0,0.6)}
+    .username{margin-top:12px;font-size:20px;color:#f3f3f3;font-weight:700}
+    .about{margin-top:10px;font-size:18px;color:#ffb86b;max-width:760px;text-align:center}
+
+    /* CTA */
+    .cta-wrap{display:flex;gap:18px;justify-content:center;margin-top:22px;flex-wrap:wrap}
+    .btn{background:linear-gradient(90deg,#ff7b00,#ffbb00);border:none;padding:14px 26px;border-radius:40px;font-size:18px;font-weight:800;color:#070707;cursor:pointer;display:inline-flex;align-items:center;gap:10px}
+    .btn:hover{transform:translateY(-3px)}
+
+    /* Offer */
+    .offer{margin-top:18px;text-align:center;background:rgba(255,123,0,0.06);padding:12px;border-radius:10px;color:#ffdca8;font-weight:700}
+
+    /* Features */
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:26px}
+    .feature{background:rgba(255,255,255,0.03);padding:16px;border-radius:10px;text-align:left}
+    .feature h4{margin:0 0 6px 0;color:#ffdca8}
+    .feature p{margin:0;color:#ddd}
+
+    /* Testimonials */
+    .testimonials{margin-top:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+    .test{background:rgba(0,0,0,0.45);padding:16px;border-radius:10px}
+    .test p{color:#eee;margin:8px 0}
+    .stars{color:#ffcc00}
+
+    /* Countdown */
+    .countdown{margin-top:22px;text-align:center;font-weight:800;color:#fff}
+    .countdown .time{font-size:30px;color:#ffdca8;margin-top:6px}
+
+    /* FAQs */
+    .faq{margin-top:28px}
+    .faq-item{background:rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-bottom:10px}
+    .faq-item summary{font-weight:700;cursor:pointer}
+    .faq-item p{margin:8px 0 0 0;color:#ddd}
+
+    /* Footer */
+    footer{margin-top:28px;padding:22px 0;text-align:center;color:#9c9c9c;font-size:14px}
+    .socials{display:flex;gap:14px;justify-content:center;margin-top:8px}
+    .socials a{color:#fff;text-decoration:none;background:rgba(255,255,255,0.03);padding:8px 12px;border-radius:8px;display:inline-flex;gap:8px;align-items:center}
+
+    /* Contact input */
+    .contact-row{display:flex;gap:8px;justify-content:center;align-items:center;margin-top:12px;flex-wrap:wrap}
+    .contact-row input{padding:10px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:#fff;min-width:220px}
+    .contact-row .open-btn{padding:10px 14px;border-radius:8px;border:none;background:#00eaff;color:#000;font-weight:700;cursor:pointer}
+
+    @media (max-width:540px){.channel-name{font-size:28px}.about{font-size:16px}.avatar{width:120px;height:120px}}
+</style>
+</head>
+<body>
+<div class="bg-anim" aria-hidden="true"></div>
+<div class="container">
+
+    <!-- Top banner using uploaded file path (demo) -->
+    <img src="/mnt/data/b75521b7-f66f-48c8-b87d-2afe8a440c9b.png" alt="money-banner" class="top-banner"/>
+
+    <!-- Channel name -->
+    <div class="channel-name">✨ Rajendra Earning Channel</div>
+
+    <!-- Profile card -->
+    <div class="profile-card">
+        <img src="/mnt/data/b75521b7-f66f-48c8-b87d-2afe8a440c9b.png" alt="profile" class="avatar"/>
+        <div class="username">@rajendra_demo</div>
+        <div class="about">Join our active Telegram community to get daily earning tips, real-time signals, exclusive freebies and step-by-step guides. Fast replies guaranteed.</div>
+
+        <!-- Offer + CTA -->
+        <div class="offer">Limited time: Join now & get <strong>₹0 Joining Bonus</strong> + Free Starter Guide</div>
+
+        <div class="cta-wrap">
+            <a href="https://t.me/demo_channel" target="_blank" rel="noopener" class="btn">📩 Join Telegram Channel</a>
+            <a href="https://t.me/demo_channel" target="_blank" rel="noopener" class="btn">💬 Message Admin</a>
+        </div>
+
+        <!-- Countdown -->
+        <div class="countdown">Hurry — offer ends in <div id="timer" class="time">00:29:59</div></div>
+
+    </div>
+
+    <!-- Features -->
+    <div class="features">
+        <div class="feature"><h4>Daily Signals</h4><p>Get short, actionable signals you can use immediately.</p></div>
+        <div class="feature"><h4>Step-by-step Guides</h4><p>Easy-to-follow lessons for beginners — no prior experience needed.</p></div>
+        <div class="feature"><h4>Free Ebooks</h4><p>Download free guides exclusive to our members.</p></div>
+        <div class="feature"><h4>Community Support</h4><p>Ask questions and get fast replies from our team.</p></div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="testimonials">
+        <div class="test"><div class="stars">★★★★★</div><p>"I started earning within a week. Super helpful community!" — Ankit</p></div>
+        <div class="test"><div class="stars">★★★★★</div><p>"Signals are reliable and clear. Support replies fast." — Priya</p></div>
+        <div class="test"><div class="stars">★★★★★</div><p>"Best channel for beginners. Free guides are gold." — Ramesh</p></div>
+    </div>
+
+    <!-- Testimonials / Offer CTA again -->
+    <div style="text-align:center;margin-top:18px">
+        <a href="https://t.me/demo_channel" class="btn" target="_blank" rel="noopener">🚀 Join & Start Now</a>
+    </div>
+
+    <!-- Profile Card (Premium) -->
+    <section style="margin-top:28px;background:rgba(255,255,255,0.02);padding:16px;border-radius:12px;">
+        <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:center">
+            <img src="/mnt/data/b75521b7-f66f-48c8-b87d-2afe8a440c9b.png" alt="profile small" style="width:96px;height:96px;border-radius:50%;border:3px solid #ff9a00;object-fit:cover"/>
+            <div style="max-width:620px;text-align:left">
+                <h3 style="margin:0;color:#ffdca8">Rajendra — Community Admin</h3>
+                <p style="margin:6px 0 0 0;color:#ddd">Helping members build a steady side income since 2020. Join to get real support, weekly live sessions and exclusive resources.</p>
+            </div>
+        </div>
+
+        <!-- Contact inputs to let visitors message admin directly -->
+        <div style="margin-top:14px;text-align:center">
+            <div class="contact-row">
+                <input id="instaInput" placeholder="Enter Instagram username (without @)" />
+                <button class="open-btn" onclick="openInsta()">Open Instagram</button>
+            </div>
+            <div class="contact-row" style="margin-top:10px">
+                <input id="waInput" placeholder="Enter WhatsApp number with country (e.g. 919999999999)" />
+                <button class="open-btn" onclick="openWhatsApp()">Open WhatsApp</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQs -->
+    <div class="faq">
+        <h3 style="color:#00eaff">Frequently Asked Questions</h3>
+        <details class="faq-item"><summary>Is this channel free?</summary><p>Yes — basic membership is free. Some premium signals may be paid (clearly labeled).</p></details>
+        <details class="faq-item"><summary>How do I join?</summary><p>Click the Join button or open Telegram and go to <strong>@demo_channel</strong>.</p></details>
+        <details class="faq-item"><summary>How fast are replies?</summary><p>We aim to reply within 2–30 minutes during working hours.</p></details>
+    </div>
+
+    <!-- Footer with Privacy and socials -->
+    <footer>
+        <div><a href="/privacy-policy.html" style="color:#00eaff;text-decoration:none">Privacy Policy</a> • <a href="#" style="color:#00eaff;text-decoration:none">Disclaimer</a></div>
+        <div class="socials">
+            <a href="https://instagram.com/demo_user" target="_blank" rel="noopener">📸 Instagram</a>
+            <a href="https://wa.me/919999999999" target="_blank" rel="noopener">💬 WhatsApp</a>
+        </div>
+        <div style="margin-top:10px;color:#8a8a8a">Made by Rajendra</div>
+    </footer>
+
+</div>
+
+<script>
+    // Countdown timer (30 minutes demo)
+    (function(){
+        let total = 30*60; // 30 minutes in seconds
+        const el = document.getElementById('timer');
+        function fmt(s){
+            const mm = Math.floor(s/60).toString().padStart(2,'0');
+            const ss = (s%60).toString().padStart(2,'0');
+            return mm + ':' + ss;
+        }
+        function tick(){
+            if(total<=0){el.textContent='00:00:00';return}
+            el.textContent = fmt(total);
+            total--;
+            setTimeout(tick,1000);
+        }
+        tick();
+    })();
+
+    function openInsta(){
+        const user = document.getElementById('instaInput').value.trim();
+        const url = user ? `https://instagram.com/${encodeURIComponent(user)}` : 'https://instagram.com/demo_user';
+        window.open(url,'_blank');
+    }
+    function openWhatsApp(){
+        const num = document.getElementById('waInput').value.replace(/[\s+\-()]/g,'');
+        const url = num ? `https://wa.me/${encodeURIComponent(num)}` : 'https://wa.me/919999999999';
+        window.open(url,'_blank');
+    }
+</script>
+
+</body>
+</html>
