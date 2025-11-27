@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Meta & Telegram Ads — Contact Us</title>
+  <meta name="description" content="We run Meta & Telegram ads. Contact us on Instagram or Telegram to discuss pricing and campaigns." />
+  <style>
+    :root{
+      --bg:#0b0d10; --card:#0f1720; --accent:#ff5a5f; --muted:#9aa4b2; --glass: rgba(255,255,255,0.03);
+      --btn-grad: linear-gradient(90deg,#ff6b6b,#ffb86b);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:linear-gradient(180deg,#050607 0%, #0b0d10 100%); color:#e6eef6; -webkit-font-smoothing:antialiased; overflow-x:hidden}
+
+    header{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;border-bottom:1px solid rgba(255,255,255,0.03);position:sticky;top:0;backdrop-filter:blur(6px);z-index:40}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,#1f2937,#111827);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent)}
+    nav{display:flex;gap:12px;align-items:center}
+
+    .reviews-tab{position:fixed;right:12px;top:18px;background:var(--card);padding:10px 14px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,0.6);cursor:pointer;border:1px solid rgba(255,255,255,0.03);color:#ffb400;font-weight:700;display:flex;align-items:center;gap:6px}
+
+    .hero{display:grid;grid-template-columns: 1fr 420px;gap:28px;padding:48px 48px;align-items:center;opacity:0;transform:translateY(20px);animation:fadeIn 1s forwards}
+    .hero-left{max-width:900px}
+    h1{font-size:44px;margin:0 0 12px;line-height:1.02;letter-spacing:-0.5px}
+    .sub{color:var(--muted);font-size:15px;margin-bottom:18px}
+    .cta-row{display:flex;gap:12px;align-items:center}
+
+    .btn{padding:12px 18px;border-radius:12px;border:none;cursor:pointer;font-weight:600;transition:0.3s}
+    .primary{background:var(--btn-grad);color:#fff;box-shadow:0 6px 24px rgba(255,90,90,0.12)}
+    .primary:hover{transform:scale(1.05);}
+    .ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+    .social-btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;background:var(--glass);border:1px solid rgba(255,255,255,0.03);cursor:pointer;transition:0.3s}
+    .social-btn svg{width:18px;height:18px;fill:#fff}
+    .social-btn:hover{transform:scale(1.05)}
+
+    .rounds{display:flex;gap:12px;align-items:center}
+    .round{width:84px;height:84px;border-radius:50%;overflow:hidden;border:3px solid rgba(255,255,255,0.04);background:#111;display:flex;align-items:center;justify-content:center;position:relative;}
+    .round::after{content:'';position:absolute;top:0;left:-75%;width:50%;height:100%;background:linear-gradient(120deg, rgba(255,255,255,0.15), transparent, rgba(255,255,255,0.15));transform:skewX(-25deg);animation:shine 2.5s infinite;}
+    .round img{width:100%;height:100%;object-fit:cover}
+
+    .hero-right{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:20px;border-radius:14px;border:1px solid rgba(255,255,255,0.03);opacity:0;transform:translateY(20px);animation:fadeIn 1s forwards 0.3s}
+    .header-photo{width:100%;height:180px;border-radius:10px;background:#0a0b0d;display:block;overflow:hidden}
+    .header-photo img{width:100%;height:100%;object-fit:cover}
+
+    .offers{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding:34px;border-radius:12px;margin:20px 48px;border:1px solid rgba(255,255,255,0.03);opacity:0;transform:translateY(20px);animation:fadeIn 1s forwards 0.6s}
+    .offers h2{font-size:28px;margin:0 0 12px}
+    .offers p{color:var(--muted);margin:0 0 18px}
+    .offer-list{font-size:16px;line-height:1.6}
+
+    .value-bar{display:flex;gap:12px;align-items:center;justify-content:space-between;margin:18px 0}
+    .value-item{flex:1;padding:14px;border-radius:10px;background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent);text-align:center}
+    .value-item strong{display:block;font-size:20px}
+    .value-item span{color:var(--muted);font-size:13px}
+
+    .trust{display:flex;gap:12px;align-items:center;padding:14px;border-radius:12px;background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent);margin:18px 48px;border:1px solid rgba(255,255,255,0.03);opacity:0;transform:translateY(20px);animation:fadeIn 1s forwards 0.9s}
+
+    .faq{padding:30px 48px;opacity:0;transform:translateY(20px);animation:fadeIn 1s forwards 1.2s}
+    .faq h3{font-size:22px}
+    .qa{margin:14px 0;background:var(--card);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)}
+
+    .reviews-stars{color:#ffb400; margin-left:6px;}
+
+    .footer{padding:24px 48px;color:var(--muted);display:flex;justify-content:center;align-items:center}
+
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,0.6);z-index:80}
+    .modal .box{background:#06101a;padding:20px;border-radius:12px;width:96%;max-width:760px;border:1px solid rgba(255,255,255,0.04)}
+    .close{float:right;border:none;background:transparent;color:var(--muted);font-weight:700;cursor:pointer}
+
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes shine{0%{left:-75%}50%{left:125%}100%{left:-75%}}
+
+    @media(max-width:900px){
+      .hero{grid-template-columns:1fr;gap:20px;padding:20px}
+      .hero-right{order:-1}
+      header{padding:14px}
+      .offers{margin:12px}
+      .trust{margin:12px}
+      .faq{padding:18px}
+    }
+  </style>
+</head>
+<body>
+  <div class="reviews-tab" id="openReviews" title="View reviews & past results">Reviews ★★★★☆</div>
+  <header>
+    <div class="brand">
+      <div class="logo">MR</div>
+      <div>
+        <div style="font-weight:700">Meta & Telegram Ads</div>
+        <div style="font-size:12px;color:var(--muted)">Meta (Facebook/Instagram) & Telegram campaign experts</div>
+      </div>
+    </div>
+    <nav class="top-actions">
+      <button class="social-btn primary" onclick="scrollToContact()" title="Contact us now">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 2L11 13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 2L15 22l-4-9L2 9l20-7z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Contact Us Now
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-left">
+        <h1>We run Meta & Telegram ads that convert — you message, we deliver strategy</h1>
+        <div class="sub">No pricing here — message us on Instagram or Telegram and we'll discuss a tailored plan for your business.</div>
+
+        <div class="cta-row">
+          <button class="btn primary" onclick="scrollToContact()">Contact Us Now</button>
+          <button class="btn ghost" onclick="openReviews()">Past Results / Reviews</button>
+        </div>
+
+        <div style="margin-top:18px" class="rounds">
+          <div class="round" title="Photo 1"><img id="round1" src="https://via.placeholder.com/300x300.png?text=Photo+1" alt="Photo 1"></div>
+          <div class="round" title="Photo 2"><img id="round2" src="https://via.placeholder.com/300x300.png?text=Photo+2" alt="Photo 2"></div>
+          <div style="color:var(--muted);font-size:13px">Replace the round images with your photos. Top header image can be changed below.</div>
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="header-photo" title="Header photo"><img id="headerImg" src="https://via.placeholder.com/800x400.png?text=Header+Photo" alt="Header"></div>
+
+        <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between">
+          <a class="social-btn" href="https://instagram.com/yourprofile" target="_blank" rel="noopener" title="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="1.2"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke="currentColor" stroke-width="1.2"/></svg>
+            <span style="font-weight:600;color:#fff">Instagram</span>
+          </a>
+
+          <a class="social-btn" href="https://t.me/yourchannel" target="_blank" rel="noopener" title="Telegram">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 2L11 13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 2L15 22l-4-9L2 9l20-7z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span style="font-weight:600;color:#fff">Telegram</span>
+          </a>
+        </div>
+      </aside>
+    </section>
+
+    <section class="offers">
+      <h2>What we offer</h2>
+      <p>We focus on high-converting Meta (Facebook & Instagram) ads and Telegram promotions. We build the strategy, creatives, ad setup, and landing pages — you just message us to start.</p>
+
+      <div class="offer-list">
+        <strong>Services included:</strong>
+        <ul style="margin-top:8px">
+          <li>Strategy & campaign planning (audience research, funnel design)</li>
+          <li>Ad creative guidance & video/image review</li>
+          <li>Meta (Facebook & Instagram) ad setup + optimization</li>
+          <li>Telegram channel & ad promotion setup</li>
+          <li>Landing page design & integration</li>
+          <li>Meta Pixel setup & event tracking</li>
+          <li>Conversion optimization & reporting</li>
+          <li>A/B testing and scaling successful creatives</li>
+        </ul>
+
+        <div class="value-bar">
+          <div class="value-item"><strong>High CTR</strong><span>Focused creatives & copy</span></div>
+          <div class="value-item"><strong>Pixel & Tracking</strong><span>Configured for conversions</span></div>
+          <div class="value-item"><strong>Landing Pages</strong><span>Built for results</span></div>
+        </div>
+
+        <a class="btn primary past-btn" href="#" onclick="openReviews();return false">Past Results or Reviews</a>
+      </div>
+    </section>
+
+    <section class="trust" aria-hidden="false">
+      <div style="flex:1">
+        <div style="font-weight:700">Trusted Ads Partner</div>
+        <div style="color:var(--muted);font-size:13px">We follow ad policies and remove banned words. Campaigns designed for scale & compliance.</div>
+      </div>
+      <div style="min-width:140px;text-align:right;color:var(--muted)">Data-driven ∘ ROI-focused</div>
+    </section>
+
+    <section class="faq">
+      <h3>FAQ</h3>
+      <div class="qa"><strong>Q: How do I get started?</strong><div style="color:var(--muted);margin-top:8px">Message us on Instagram or Telegram (buttons above). We'll ask a few questions and propose a plan.</div></div>
+      <div class="qa"><strong>Q: Do you share pricing?</strong><div style="color:var(--muted);margin-top:8px">No pricing here — we'll discuss pricing after you message us so we can tailor an offer.</div></div>
+      <div class="qa"><strong>Q: Will you build landing pages?</strong><div style="color:var(--muted);margin-top:8px">Yes — landing pages and pixel setup are part of our services.</div></div>
+    </section>
+
+    <footer class="footer">
+      <div>Made by CC Rajndra Singh</div>
+      <div style="display:flex;gap:16px;align-items:center">
+        <a id="privacy" href="#" style="color:var(--muted);text-decoration:none">Privacy Policy</a>
+      </div>
+    </footer>
+  </main>
+
+  <div id="modal" class="modal" role="dialog" aria-modal="true">
+    <div class="box">
+      <button class="close" onclick="closeReviews()">✕</button>
+      <h2 style="margin-top:6px">Past Results & Reviews</h2>
+      <p style="color:var(--muted)">Replace this with your actual reviews, case studies, screenshots, links to campaign reports or simple bullet points with metrics.</p>
+      <ul style="margin-top:10px;color:var(--muted)">
+        <li><strong>Example:</strong> Increased ROAS by 3.8x for client X in 30 days (screenshot link)</li>
+        <li><strong>Example:</strong> Telegram channel growth from 0 to 5k in 45 days (screenshot link)</li>
+        <li>Add more real results here.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('modal');
+    function openReviews(){ modal.style.display='flex'; }
+    function closeReviews(){ modal.style.display='none'; }
+    document.getElementById('openReviews').addEventListener('click', openReviews);
+    function scrollToContact(){
+      const el = document.querySelector('.hero-right'); if(el) el.scrollIntoView({behavior:'smooth',block:'center'});
+    }
+    // Helpers to replace images via console
+    window.replaceHeaderImage = function(url){ document.getElementById('headerImg').src = url }
+    window.replaceRound1 = function(url){ document.getElementById('round1').src = url }
+    window.replaceRound2 = function(url){ document.getElementById('round2').src = url }
+  </script>
+</body>
+</html>
