@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Join Telegram — Limited Time</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #000;
+      text-align: center;
+      color: #fff;
+    }
+
+    .marquee {
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      padding: 12px 0;
+      font-weight: bold;
+      font-size: 24px;
+      overflow: hidden;
+      white-space: nowrap;
+      box-sizing: border-box;
+      animation: scroll 10s linear infinite;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .container {
+      padding: 25px;
+    }
+
+    .join-now-text {
+      color: #ff4444;
+      font-size: 40px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    #timer {
+      font-size: 38px;
+      font-weight: bold;
+      margin: 20px 0;
+      padding: 12px 25px;
+      display: block;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .tg-btn {
+      display: block;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 30px;
+      background: #5fb3f9;
+      color: #fff;
+      border-radius: 10px;
+      font-size: 22px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 15px auto;
+      width: fit-content;
+    }
+
+    .tg-btn img {
+      width: 26px;
+      height: 26px;
+    }
+
+    .highlight-text {
+      font-size: 18px;
+      margin: 10px auto;
+      max-width: 400px;
+      line-height: 1.5;
+    }
+
+  </style>
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '935994816256017');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=935994816256017&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel Code -->
+</head>
+<body>
+
+<div class="marquee">🔥 Join Now — Limited Slots • Huge Profits with Daily Color Predictions 🔥</div>
+
+<div class="container">
+  <h2>Join our Telegram for Daily Color Trading Updates & Predictions</h2>
+
+  <div class="highlight-text">💡 Get accurate daily signals, maximize your earnings, and stay ahead in the market!</div>
+  <div class="highlight-text">🚀 Perfect for beginners & experienced traders aiming for consistent profit!</div>
+
+  <div class="join-now-text">JOIN NOW</div>
+
+  <div id="timer">02:00:00</div>
+
+  <a href="https://t.me/YOUR_CHANNEL" class="tg-btn" onclick="fbq('track', 'Subscribe');">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" />
+    Join Us on Telegram
+  </a>
+</div>
+
+<script>
+  // 2 hour timer
+  let time = 2 * 60 * 60;
+
+  function updateTimer() {
+    let hrs = Math.floor(time / 3600);
+    let mins = Math.floor((time % 3600) / 60);
+    let secs = time % 60;
+
+    document.getElementById("timer").innerHTML =
+      String(hrs).padStart(2, '0') + ':' +
+      String(mins).padStart(2, '0') + ':' +
+      String(secs).padStart(2, '0');
+
+    if (time > 0) time--;
+  }
+
+  setInterval(updateTimer, 1000);
+</script>
+
+</body>
+</html>
