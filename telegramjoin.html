@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Join Our Telegram</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f0f0f;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .box {
+      padding: 30px;
+      background: #1a1a1a;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.1);
+    }
+    button {
+      margin-top: 20px;
+      padding: 15px 25px;
+      font-size: 18px;
+      background: #0088cc;
+      border: none;
+      border-radius: 10px;
+      color: #fff;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:active {
+      opacity: 0.8;
+    }
+    .count {
+      margin-top: 15px;
+      font-size: 16px;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Join Our Telegram Channel</h2>
+    <p>Tap the button below to join instantly.</p>
+
+    <button id="joinBtn">Join Telegram</button>
+    <div class="count">Subscribers: <span id="subCount">0</span></div>
+  </div>
+
+  <script>
+    // Simple local counter (no backend)
+    let count = localStorage.getItem('tg_sub_count') || 0;
+    document.getElementById('subCount').innerText = count;
+
+    document.getElementById('joinBtn').addEventListener('click', function(){
+      count++;
+      localStorage.setItem('tg_sub_count', count);
+      document.getElementById('subCount').innerText = count;
+
+      // Replace your telegram link below
+      window.location.href = "https://t.me/YOUR_USERNAME";
+    });
+  </script>
+  <script>
+    // Simple local counter (no backend)
+    let count = localStorage.getItem('tg_sub_count') || 0;
+    document.getElementById('subCount').innerText = count;
+
+    document.getElementById('joinBtn').addEventListener('click', function(){
+      count++;
+      localStorage.setItem('tg_sub_count', count);
+      document.getElementById('subCount').innerText = count;
+
+      // Meta Pixel Subscribe Event
+      if (typeof fbq === 'function') {
+        fbq('track', 'Subscribe');
+      }
+
+      // Replace your telegram link below
+      window.location.href = "https://t.me/YOUR_USERNAME";
+    });
+  </script>
+</body>
+</html>
