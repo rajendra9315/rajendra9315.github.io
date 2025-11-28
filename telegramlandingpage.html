@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Join Our Telegram</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0f0f50, #1a0050, #330050);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .box {
+      padding: 35px;
+      background: rgba(0,0,0,0.35);
+      border-radius: 25px;
+      width: 90%;
+      max-width: 420px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 25px rgba(255,255,255,0.12);
+    }
+    .profile {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      border: 3px solid rgba(255,255,255,0.4);
+    }
+    button {
+      margin-top: 25px;
+      padding: 16px 25px;
+      font-size: 18px;
+      background: linear-gradient(135deg, #007bff, #00aaff);
+      border: none;
+      border-radius: 12px;
+      color: #fff;
+      cursor: pointer;
+      width: 100%;
+      font-weight: bold;
+    }
+    button:active { opacity: 0.8; }
+    .count {
+      margin-top: 15px;
+      font-size: 16px;
+      opacity: 0.75;
+    }
+  </style>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '25608546272103166');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=25608546272103166&ev=PageView&noscript=1"/></noscript>
+</head>
+<body>
+  <div class="box">
+    <img src="profile.png" class="profile" alt="Profile" />
+
+    <h2>Join Our Telegram Channel</h2>
+    <p>Get daily color trading predictions, numbers, market insights, and premium tips directly in your Telegram.</p>
+
+    <button id="joinBtn">Join Telegram</button>
+    <div class="count">Subscribers: <span id="subCount">0</span></div>
+  </div>
+
+  <script>
+    let count = localStorage.getItem('tg_sub_count') || 0;
+    document.getElementById('subCount').innerText = count;
+
+    document.getElementById('joinBtn').addEventListener('click', function(){
+      count++;
+      localStorage.setItem('tg_sub_count', count);
+      document.getElementById('subCount').innerText = count;
+
+      if (typeof fbq === 'function') {
+        fbq('track', 'Subscribe');
+      }
+
+      window.location.href = "https://t.me/@SMG_ABHISHEK";
+    });
+  </script>
+</body>
+</html>
