@@ -73,31 +73,24 @@
     }
   </style>
 
-  <!-- Meta Pixel for PageView + Lead -->
+  <!-- Meta Pixel Code -->
   <script>
-  !function(f,b,e,v,n,t,s){
-    if(f.fbq)return;
-    n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;
-    n.push=n;
-    n.loaded=!0;
-    n.version='2.0';
-    n.queue=[];
-    t=b.createElement(e);
-    t.async=!0;
-    t.src=v;
-    s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)
-  }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-
-  fbq('init', '1955677441996090'); // New Pixel ID
-  fbq('track', 'PageView'); // Track page view
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1117383203803227');
+  fbq('track', 'PageView');
   </script>
-  <noscript>
-  <img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1955677441996090&ev=PageView&noscript=1"/>
-  </noscript>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1117383203803227&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
 </head>
 <body>
 
@@ -139,13 +132,13 @@
   // Fire Lead event on Join Telegram button click
   const joinBtn = document.getElementById('joinBtn');
   joinBtn.addEventListener('click', function(event){
-    event.preventDefault();               // stop immediate redirect
-      fbq('track', 'Lead');                // fire Lead event
-      setTimeout(function(){
-          window.open(joinBtn.href, "_blank"); // redirect to Telegram after short delay
-      }, 800); // short delay ensures pixel registers
+    event.preventDefault();               
+    fbq('track', 'Lead');                
+    setTimeout(function(){
+      window.open(joinBtn.href, "_blank"); 
+    }, 800); 
   });
 </script>
 
-</body>
+</body> 
 </html>
