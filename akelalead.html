@@ -130,3 +130,33 @@
   </a>
 
 </div>
+<!-- end of container -->
+
+<script>
+  // 55-minute countdown timer
+  let time = 55 * 60;
+  function updateTimer() {
+    let hrs = Math.floor(time / 3600);
+    let mins = Math.floor((time % 3600) / 60);
+    let secs = time % 60;
+    document.getElementById("timer").innerHTML =
+      String(hrs).padStart(2,'0') + ':' +
+      String(mins).padStart(2,'0') + ':' +
+      String(secs).padStart(2,'0');
+    if(time > 0) time--;
+  }
+  setInterval(updateTimer, 1000);
+
+  // Fire Lead event on Join Telegram button click
+  const joinBtn = document.getElementById('joinBtn');
+  joinBtn.addEventListener('click', function(event){
+      event.preventDefault();               // stop immediate redirect
+      fbq('track', 'Lead');                // fire Lead event
+      setTimeout(function(){
+          window.open(joinBtn.href, "_blank"); // redirect to Telegram after short delay
+      }, 800); // short delay ensures pixel registers
+  });
+</script>
+
+</body>
+</html>
