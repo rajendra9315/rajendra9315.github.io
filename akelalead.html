@@ -112,7 +112,6 @@
   </a>
 
 </div>
-
 <!-- Timer + Lead Event Script -->
 <script>
   // 55-minute countdown timer
@@ -129,14 +128,25 @@
   }
   setInterval(updateTimer, 1000);
 
-  // Fire Lead event on Join Telegram button click
+  // Fire Lead event on Join Telegram button click (Optimized)
   const joinBtn = document.getElementById('joinBtn');
   joinBtn.addEventListener('click', function(event){
-    event.preventDefault();               
-    fbq('track', 'Lead');                
+    event.preventDefault(); // stop immediate navigation temporarily
+
+    // Fire Meta Pixel Lead event immediately
+    fbq('track', 'Lead');
+
+    // Use sendBeacon for more reliable tracking
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon(
+        'https://www.facebook.com/tr?id=1117383203803227&ev=Lead&noscript=1'
+      );
+    }
+
+    // Open Telegram immediately (tiny delay to ensure Pixel fires)
     setTimeout(function(){
-      window.open(joinBtn.href, "_blank"); 
-    }, 800); 
+      window.open(joinBtn.href, "_blank");
+    }, 100); // 100ms delay
   });
 </script>
 </body> 
