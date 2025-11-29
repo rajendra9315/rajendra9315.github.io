@@ -13,7 +13,6 @@
       text-align: center;
       color: #fff;
     }
-
     .marquee {
       background: rgba(0,0,0,0.5);
       color: #fff;
@@ -25,23 +24,19 @@
       box-sizing: border-box;
       animation: scroll 10s linear infinite;
     }
-
     @keyframes scroll {
       0% { transform: translateX(100%); }
       100% { transform: translateX(-100%); }
     }
-
     .container {
       padding: 25px;
     }
-
     .join-now-text {
       color: #ff4444;
       font-size: 40px;
       font-weight: bold;
       margin-bottom: 15px;
     }
-
     #timer {
       font-size: 38px;
       font-weight: bold;
@@ -51,7 +46,6 @@
       border-radius: 10px;
       background: rgba(255,255,255,0.1);
     }
-
     .tg-btn {
       display: block;
       align-items: center;
@@ -67,22 +61,19 @@
       width: fit-content;
       cursor: pointer;
     }
-
     .tg-btn img {
       width: 26px;
       height: 26px;
     }
-
     .highlight-text {
       font-size: 18px;
       margin: 10px auto;
       max-width: 400px;
       line-height: 1.5;
     }
-
   </style>
 
-  <!-- New Meta Pixel for Lead -->
+  <!-- Meta Pixel for PageView + Lead -->
   <script>
   !function(f,b,e,v,n,t,s){
     if(f.fbq)return;
@@ -98,8 +89,7 @@
     t.src=v;
     s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)
-  }(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
+  }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
   fbq('init', '1955677441996090'); // New Pixel ID
   fbq('track', 'PageView'); // Track page view
@@ -108,7 +98,6 @@
   <img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=1955677441996090&ev=PageView&noscript=1"/>
   </noscript>
-
 </head>
 <body>
 
@@ -130,8 +119,8 @@
   </a>
 
 </div>
-<!-- end of container -->
 
+<!-- Timer + Lead Event Script -->
 <script>
   // 55-minute countdown timer
   let time = 55 * 60;
@@ -150,7 +139,7 @@
   // Fire Lead event on Join Telegram button click
   const joinBtn = document.getElementById('joinBtn');
   joinBtn.addEventListener('click', function(event){
-      event.preventDefault();               // stop immediate redirect
+    event.preventDefault();               // stop immediate redirect
       fbq('track', 'Lead');                // fire Lead event
       setTimeout(function(){
           window.open(joinBtn.href, "_blank"); // redirect to Telegram after short delay
