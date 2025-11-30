@@ -47,7 +47,7 @@
       background: rgba(255,255,255,0.1);
     }
     .tg-btn {
-      display: inline-flex;
+      display: block;
       align-items: center;
       gap: 10px;
       padding: 16px 30px;
@@ -58,6 +58,7 @@
       text-decoration: none;
       font-weight: bold;
       margin: 15px auto;
+      width: fit-content;
       cursor: pointer;
     }
     .tg-btn img {
@@ -85,7 +86,6 @@
   fbq('init', '1117383203803227');
   fbq('track', 'PageView');
   </script>
-
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=1117383203803227&ev=PageView&noscript=1"
   /></noscript>
@@ -106,8 +106,7 @@
 
   <div id="timer">--:--:--</div>
 
-  <a href="https://t.me/+rSxcE5_mzhZmNjJl" class="tg-btn" id="joinBtn"
-     target="_blank" rel="noopener noreferrer">
+  <a href="https://t.me/+rSxcE5_mzhZmNjJl" class="tg-btn" id="joinBtn">
     <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" />
     Join Us on Telegram
   </a>
@@ -116,63 +115,29 @@
 
 <!-- Timer + Lead Event Script -->
 <script>
-(function() {
-
-  // ----- TIMER -----
-  let remaining = 55 * 60; // 55 minutes
-  const timerEl = document.getElementById('timer');
-
-  function formatTime(sec) {
-    let h = Math.floor(sec / 3600);
-    let m = Math.floor((sec % 3600) / 60);
-    let s = sec % 60;
-    return `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+  // 55-minute countdown timer
+  let time = 55 * 60;
+  function updateTimer() {
+    let hrs = Math.floor(time / 3600);
+    let mins = Math.floor((time % 3600) / 60);
+    let secs = time % 60;
+    document.getElementById("timer").innerHTML =
+      String(hrs).padStart(2,'0') + ':' +
+      String(mins).padStart(2,'0') + ':' +
+      String(secs).padStart(2,'0');
+    if(time > 0) time--;
   }
+  setInterval(updateTimer, 1000);
 
-  timerEl.textContent = formatTime(remaining);
-
-  const interval = setInterval(() => {
-    if (remaining <= 0) {
-      clearInterval(interval);
-      timerEl.textContent = "00:00:00";
-      return;
-    }
-    remaining--;
-    timerEl.textContent = formatTime(remaining);
-  }, 1000);
-
-
-  // ----- JOIN BUTTON & LEAD EVENT -----
+  // Fire Lead event on Join Telegram button click (link opens instantly)
   const joinBtn = document.getElementById('joinBtn');
-
-  joinBtn.addEventListener('click', function() {
-
-    // Fire Meta Lead event WITH value ₹5
-    try {
-      if (typeof fbq === 'function') {
-        fbq('track', 'Lead', {
-          value: 5.00,
-          currency: "INR"
-        });
-      }
-    } catch (err) {
-      console.warn("fbq error:", err);
+  joinBtn.addEventListener('click', function(){
+    if (typeof fbq === 'function') {
+      fbq('track', 'Lead'); // fires the event immediately
     }
-
-    // SendBeacon additional backup ping
-    try {
-      if (navigator.sendBeacon) {
-        navigator.sendBeacon(
-          "https://www.facebook.com/tr?id=1117383203803227&ev=Lead&noscript=1"
-        );
-      }
-    } catch (err) { }
-
-    // Navigation handled naturally by <a target="_blank">  
+    // link opens naturally via <a href>, no delay needed
   });
-
-})();
 </script>
-
-</body>
+</body> 
 </html>
+
