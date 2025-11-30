@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Join Our Telegram – Limited Access</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #0b0b0b;
+      color: #fff;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      opacity: 0.8;
+      line-height: 1.5;
+    }
+
+    .countdown {
+      font-size: 2rem;
+      color: #ffcc00;
+      margin: 20px 0;
+      font-weight: bold;
+    }
+
+    .btn {
+      background: #0088cc;
+      color: white;
+      padding: 15px;
+      text-decoration: none;
+      font-size: 1.3rem;
+      border-radius: 10px;
+      display: inline-block;
+      width: 90%;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #0077b5;
+    }
+
+    .highlight {
+      color: #00eaff;
+      font-weight: bold;
+    }
+
+    .features {
+      margin-top: 30px;
+      text-align: left;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .features li {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>🚀 Join Our Exclusive Telegram Channel</h1>
+    <p>Get instant access to verified updates, exclusive insights, and premium alerts trusted by thousands.</p>
+
+    <p class="highlight">Limited-Time Free Access — Hurry!</p>
+
+    <div class="countdown" id="timer">05:00</div>
+
+    <a href="https://t.me/+c2aeC_otzXYwNTll" id="joinBtn" class="btn">Join Telegram Now</a>
+
+    <ul class="features">
+      <li>✔ Fast, Verified Information</li>
+      <li>✔ 24×7 Instant Updates</li>
+      <li>✔ 100% Free to Join</li>
+      <li>✔ Trusted by Thousands of Members</li>
+    </ul>
+  </div>
+
+  <script>
+    // Countdown Timer - 5 Minutes
+    let time = 300;
+    const timerElement = document.getElementById("timer");
+
+    setInterval(() => {
+      let minutes = Math.floor(time / 60);
+      let seconds = time % 60;
+
+      timerElement.textContent =
+        `${minutes < 10 ? "0" : ""}${minutes}:` +
+        `${seconds < 10 ? "0" : ""}${seconds}`;
+
+      if (time > 0) time--;
+    }, 1000);
+
+    // Pixel Event Trigger
+    document.getElementById("joinBtn").addEventListener("click", () => {
+      if (typeof fbq !== "undefined") {
+        fbq("trackCustom", "JoinTelegramClick");
+      }
+    });
+  </script>
+
+</body>
+</html>
