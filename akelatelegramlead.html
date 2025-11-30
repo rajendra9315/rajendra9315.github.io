@@ -65,6 +65,7 @@
       font-weight: bold;
       margin: 15px auto;
       width: fit-content;
+      cursor: pointer;
     }
 
     .tg-btn img {
@@ -78,7 +79,6 @@
       max-width: 400px;
       line-height: 1.5;
     }
-
   </style>
 
   <!-- Meta Pixel Code -->
@@ -91,7 +91,7 @@
   t.src=v;s=b.getElementsByTagName(e)[0];
   s.parentNode.insertBefore(t,s)}(window, document,'script',
   'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '935994816256017');
+  fbq('init', '935994816256017'); 
   fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
@@ -110,34 +110,48 @@
 
   <div class="join-now-text">JOIN NOW</div>
 
-  <div id="timer">02:00:00</div>
+  <div id="timer">--:--:--</div>
 
-<a href="https://t.me/+rSxcE5_mzhZmNjJl" class="tg-btn" onclick="fbq('track', 'Subscribe');" target="_blank">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" />
-  Join Us on Telegram
-</a>
-
+  <a href="https://t.me/+rSxcE5_mzhZmNjJl" class="tg-btn" id="joinBtn" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" />
+    Join Us on Telegram
+  </a>
 </div>
 
-
 <script>
-  // 55 minute timer
-  let time = 55 * 60; // 55 minutes in seconds
+(function() {
+  // ----- TIMER -----
+  let remaining = 55 * 60; // 55 minutes
+  const timerEl = document.getElementById('timer');
 
-  function updateTimer() {
-    let hrs = Math.floor(time / 3600);
-    let mins = Math.floor((time % 3600) / 60);
-    let secs = time % 60;
-
-    document.getElementById("timer").innerHTML =
-      String(hrs).padStart(2, '0') + ':' +
-      String(mins).padStart(2, '0') + ':' +
-      String(secs).padStart(2, '0');
-
-    if (time > 0) time--;
+  function formatTime(sec) {
+    let h = Math.floor(sec / 3600);
+    let m = Math.floor((sec % 3600) / 60);
+    let s = sec % 60;
+    return `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
   }
 
-  setInterval(updateTimer, 1000);
+  timerEl.textContent = formatTime(remaining);
+
+  setInterval(() => {
+    if (remaining <= 0) {
+      timerEl.textContent = "00:00:00";
+      return;
+    }
+    remaining--;
+    timerEl.textContent = formatTime(remaining);
+  }, 1000);
+
+  // ----- JOIN BUTTON & PIXEL -----
+  const joinBtn = document.getElementById('joinBtn');
+  joinBtn.addEventListener('click', function() {
+    // Fire Meta Pixel Subscribe event
+    if (typeof fbq === 'function') {
+      fbq('track', 'Subscribe'); 
+    }
+    // Link opens instantly because of <a href>, no delay
+  });
+})();
 </script>
 
 </body>
